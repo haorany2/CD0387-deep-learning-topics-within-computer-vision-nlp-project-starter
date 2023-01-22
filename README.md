@@ -16,6 +16,9 @@ Upload the data to an S3 bucket through the AWS Gateway so that SageMaker has ac
 
 ## Hyperparameter Tuning
 What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
+* I use pretrained incepton v3 model. This is a classical model used for image classification. 
+* I fine tune "lr": ContinuousParameter(0.001, 0.1), "batch-size": CategoricalParameter([32, 64, 128, 256, 512]), "epochs": IntegerParameter(2,15), "momentum": ContinuousParameter(0.001, 0.9999). 
+* I Use hyperband search to find the best hyperparameter.
 
 Remember that your README should:
 - Include a screenshot of completed training jobs
@@ -25,17 +28,25 @@ Remember that your README should:
 
 ## Debugging and Profiling
 **TODO**: Give an overview of how you performed model debugging and profiling in Sagemaker
+* initiate hook in the main function. 
+* Add hook in train and test function. 
+* In the notebook, add rules and configurations to estimator.
 
 ### Results
 **TODO**: What are the results/insights did you get by profiling/debugging your model?
 
 **TODO** Remember to provide the profiler html/pdf file in your submission.
-
+The GPU is well used, which is good. The loss reduces significant in the beginning, but not moving much latter. We can reduce learning rate and try more epoches, or use a scheduler to change learning rate dynamically. 
 
 ## Model Deployment
 **TODO**: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
 
 **TODO** Remember to provide a screenshot of the deployed active endpoint in Sagemaker.
+* write an inference.py file as the entry point of the deployment. 
+* overwrite predictor call back class. (overwrite serialization and deserialization)
+* Setup PyTorchModel parameters, including moedel data dir, framework version, python version, entry point file, and preditor callback function. 
+* deploy with instace type and ContentType
+* load the image to create the payload, then predict and get prediction result
 
 ## Standout Suggestions
 **TODO (Optional):** This is where you can provide information about any standout suggestions that you have attempted.
