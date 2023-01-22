@@ -42,6 +42,8 @@ Remember that your README should:
 **TODO** Remember to provide the profiler html/pdf file in your submission.
 The GPU is well used, which is good. The loss reduces significant in the beginning, but not moving much latter. We can reduce learning rate and try more epoches, or use a scheduler to change learning rate dynamically. 
 
+![alt text](image/Screenshot 2023-01-22 at 12.33.48 PM.png?raw=true)
+
 ## Model Deployment
 **TODO**: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
 
