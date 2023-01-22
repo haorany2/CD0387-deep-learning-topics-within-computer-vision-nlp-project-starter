@@ -40,7 +40,8 @@ Remember that your README should:
 **TODO**: What are the results/insights did you get by profiling/debugging your model?
 
 **TODO** Remember to provide the profiler html/pdf file in your submission.
-The GPU is well used, which is good. The loss reduces significant in the beginning, but not moving much latter. We can reduce learning rate and try more epoches, or use a scheduler to change learning rate dynamically. 
+* The GPU is well used, which is good. 
+* The loss reduces significant in the beginning, but not moving much latter. We can reduce learning rate and try more epoches, or use a scheduler to change learning rate dynamically. 
 
 ![alt text](image/debuging.png?raw=true)
 
