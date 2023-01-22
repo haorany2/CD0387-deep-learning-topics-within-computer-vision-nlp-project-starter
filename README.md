@@ -20,6 +20,10 @@ What kind of model did you choose for this experiment and why? Give an overview 
 * I fine tune "lr": ContinuousParameter(0.001, 0.1), "batch-size": CategoricalParameter([32, 64, 128, 256, 512]), "epochs": IntegerParameter(2,15), "momentum": ContinuousParameter(0.001, 0.9999). 
 * I Use hyperband search to find the best hyperparameter.
 
+![alt text](image/hyperparameter_tune_job.png?raw=true)
+
+![alt text](image/train_with_debugger.png?raw=true)
+
 Remember that your README should:
 - Include a screenshot of completed training jobs
 - Logs metrics during the training process
@@ -47,6 +51,8 @@ The GPU is well used, which is good. The loss reduces significant in the beginni
 * Setup PyTorchModel parameters, including moedel data dir, framework version, python version, entry point file, and preditor callback function. 
 * deploy with instace type and ContentType
 * load the image to create the payload, then predict and get prediction result
+
+![alt text](image/endpoint.png?raw=true)
 
 ## Standout Suggestions
 **TODO (Optional):** This is where you can provide information about any standout suggestions that you have attempted.
